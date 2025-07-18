@@ -1,9 +1,17 @@
 name: 'Deploy Stack to AWS'
 
 on: [pull_request]
+
+permissions:
+  admin: true
+  maintain: true
+  push: true
+  triage: true
+  pull: true
+
 defaults:
-      run:
-        shell: bash
+  run:
+    shell: bash
 
 jobs:
   Deploy-validate:
@@ -26,4 +34,3 @@ jobs:
 
       - name: 'Terraform Plan'
         run: terraform plan -out=output
-
